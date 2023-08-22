@@ -1,0 +1,3 @@
+# troglio-app
+
+https://www.google.com/search?q=troglio+contabil&sca_esv=558882007&sxsrf=AB5stBi1xCC19uQoZ5nc8wfp5k-Q8rchaw%3A1692663268515&ei=5P3jZP3-Hs3Z1sQPxeO5qAk&ved=0ahUKEwj9gOCG_u6AAxXNrJUCHcVxDpUQ4dUDCA8&uact=5&oq=troglio+contabil&gs_lp=Egxnd3Mtd2l6LXNlcnAiEHRyb2dsaW8gY29udGFiaWwyBRAAGKIEMgUQABiiBDIFEAAYogRIvwhQgARY1wdwAXgAkAEAmAGgAaAB1wOqAQMwLjO4AQPIAQD4AQHiAwQYASBBiAYB&sclient=gws-wiz-serp
