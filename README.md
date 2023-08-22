@@ -1,8 +1,9 @@
 # Toglio Contabilidade
 
-To DEV
+### Para Dev's
 A fim de padronizar todo o código produzido seguiremos algumas regras especificadas aqui.
-A fim de padronizar o git (<a href="https://github.com/iuricode/padroes-de-commits#readme">clique aqui para mais informações</a>) utilizaremos o padrão conhecido como códigão.<br/ >
+Com o objetivo de padronizar o git [clique aqui para mais informações][commit_patterns] utilizaremos o padrão conhecido como **códigão**.
+
 ## Tipo e descrição 🦄
 
 O commit semântico possui os elementos estruturais abaixo (tipos), que informam a intenção do seu commit ao utilizador(a) de seu código.
@@ -34,3 +35,7 @@ O commit semântico possui os elementos estruturais abaixo (tipos), que informam
 - Para descrever com detalhes, usar a descrição do commit.
 - Usar um emoji no início da mensagem de commit representando sobre o commit.
 - Os links precisam ser adicionados em sua forma mais autêntica, ou seja: sem encurtadores de link e links afiliados.
+
+
+<!-- for Dev -->
+[commit_patterns]: https://github.com/iuricode/padroes-de-commits#readme
