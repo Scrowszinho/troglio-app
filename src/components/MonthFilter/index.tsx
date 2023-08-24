@@ -45,7 +45,7 @@ const MonthFilter = () => {
                 horizontal={false}
                 style={montFilter.teste}
                 numColumns={3}
-                snapToInterval={300} // Largura de cada item
+                snapToInterval={300}
             />
             <TouchableOpacity onPress={advanceMonth}>
                 <AntDesign name='right' size={24} color={defaultTheme.colors.greyStrong} />

@@ -5,3 +5,8 @@ export interface IHomeList {
   type: 'DEBIT' | 'CREDIT';
   color?: string;
 }
+
+export interface IHomeListCalc {
+  debits: number;
+  credits: number;
+}

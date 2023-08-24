@@ -1,6 +1,6 @@
 import { FlatList, Text, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-import { IHomeList } from './interface';
+import { IHomeList, IHomeListCalc } from './interface';
 import { homeList } from './style';
 import { useState } from 'react';
 import { generatePastelColor } from '../../theme/default';
@@ -22,32 +22,33 @@ const Item = ({ data }: { data: IHomeList; }) => {
     );
 };
 
-const CalcArea = () => {
+const CalcArea = ({ data }: { data: IHomeListCalc; }) => {
     return (
         <View style={homeList.spacer}>
-        <View style={homeList.calcArea}>
-            <View style={homeList.box}>
-                <Text style={homeList.titleCalc1}>{22}</Text>
-                <Text style={homeList.subtitleCalc}>receitas</Text>
+            <View style={homeList.calcArea}>
+                <View style={homeList.box}>
+                    <Text style={homeList.titleCalc1}>{data.credits}</Text>
+                    <Text style={homeList.subtitleCalc}>receitas</Text>
+                </View>
+                <View style={homeList.box}>
+                    <Text style={homeList.titleCalc2}>{data.debits}</Text>
+                    <Text style={homeList.subtitleCalc}>despesas</Text>
+                </View>
+                <View style={homeList.box}>
+                    <Text style={homeList.titleCalc3}>{data.credits - data.debits}</Text>
+                    <Text style={homeList.subtitleCalc}>saldo</Text>
+                </View>
             </View>
-            <View style={homeList.box}>
-                <Text style={homeList.titleCalc2}>{22}</Text>
-                <Text style={homeList.subtitleCalc}>despesas</Text>
-            </View>
-            <View style={homeList.box}>
-                <Text style={homeList.titleCalc3}>{22}</Text>
-                <Text style={homeList.subtitleCalc}>saldo</Text>
-            </View>
-        </View>
         </View>
     );
 };
 
 const HomeList = ({ data }: { data: IHomeList[]; }) => {
-    const coloredData = data.map(item => ({
-        ...item,
-        color: generatePastelColor(),
-      }));
+    const [calcValues, setCalcValues] = useState<IHomeListCalc>({credits: 0, debits: 0});
+    const coloredData = data.map(item => {
+        return {...item,
+        color: generatePastelColor(),}
+    });
     return (
         <>
             <FlatList
@@ -55,7 +56,7 @@ const HomeList = ({ data }: { data: IHomeList[]; }) => {
                 renderItem={({ item }) => <Item data={item} />}
                 keyExtractor={item => item.title}
             />
-            <CalcArea />
+            <CalcArea data={calcValues} />
 
         </>
     );
