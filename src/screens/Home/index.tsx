@@ -1,5 +1,5 @@
-import { Text } from "@react-native-material/core";
-import { SafeAreaView } from "react-native";
+import { Text } from '@react-native-material/core';
+import { SafeAreaView } from 'react-native';
 
 const Home = () => {
     return (
