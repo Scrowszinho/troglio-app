@@ -15,7 +15,13 @@ const MainNavigation = () => {
   const Tab = createBottomTabNavigator();
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{ headerShown: false, headerTitle: '', tabBarShowLabel: false }}>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarShowLabel: false,
+          headerTitleAlign: 'center',
+          headerTitleStyle: { color: 'white' },
+          headerStyle: { backgroundColor: defaultTheme.colors.green,}
+        }}>
         <Tab.Screen
           name='Home'
           component={Home}
