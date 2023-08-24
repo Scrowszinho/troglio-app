@@ -52,7 +52,7 @@ export const homeList = StyleSheet.create({
         justifyContent: 'space-around',
         borderTopWidth: 1,
         borderBottomWidth: 1,
-        borderColor: '#E7E7E7'
+        borderColor: defaultTheme.colors.mediumGrey
     },
     titleCalc1: {
         fontSize: 18,
