@@ -1,8 +1,11 @@
+import { GlobalProvider } from "./src/context";
 import MainNavigation from "./src/navigation";
 
 const App = () => {
   return (
-    <MainNavigation />
+    <GlobalProvider>
+      <MainNavigation />
+    </GlobalProvider>
   );
 };
 

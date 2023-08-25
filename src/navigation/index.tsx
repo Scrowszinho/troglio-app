@@ -19,7 +19,7 @@ const MainNavigation = () => {
         screenOptions={{
           tabBarShowLabel: false,
           headerTitleAlign: 'center',
-          headerTitleStyle: { color: 'white' },
+          headerTitleStyle: { color: defaultTheme.colors.white },
           headerStyle: { backgroundColor: defaultTheme.colors.green,}
         }}>
         <Tab.Screen
