@@ -8,8 +8,7 @@ import Form from '../screens/Form';
 import Graph from '../screens/Graph';
 import Config from '../screens/Config';
 import ButtonTeste from '../components/AddButton';
-
-
+import Login from '../screens/Login';
 
 const MainNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -20,7 +19,7 @@ const MainNavigation = () => {
           tabBarShowLabel: false,
           headerTitleAlign: 'center',
           headerTitleStyle: { color: 'white' },
-          headerStyle: { backgroundColor: defaultTheme.colors.green,}
+          headerStyle: { backgroundColor: defaultTheme.colors.green, }
         }}>
         <Tab.Screen
           name='Home'
@@ -65,6 +64,16 @@ const MainNavigation = () => {
             ),
           }}
         />
+        <Tab.Screen
+          name='Login'
+          component={Login}
+          options={{
+            tabBarIcon: ({ focused, color, size }) => (
+              <Entypo name='onedrive' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
+            ),
+          }}
+        />
+
       </Tab.Navigator>
     </NavigationContainer>
   );
