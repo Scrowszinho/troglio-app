@@ -8,6 +8,7 @@ import Form from '../screens/Form';
 import Graph from '../screens/Graph';
 import Config from '../screens/Config';
 import ButtonTeste from '../components/AddButton';
+import Register from '../screens/Register';
 
 
 
@@ -62,6 +63,15 @@ const MainNavigation = () => {
           options={{
             tabBarIcon: ({ focused, color, size }) => (
               <Entypo name='dots-three-horizontal' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name='Register'
+          component={Register}
+          options={{
+            tabBarIcon: ({ focused, color, size }) => (
+              <Entypo name='onedrive' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
             ),
           }}
         />

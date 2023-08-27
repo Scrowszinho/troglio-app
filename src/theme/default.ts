@@ -7,5 +7,8 @@ export const defaultTheme = {
     colorsLogo: {
         first: '#70C2D8',
         second: '#C3373A'
+    },
+    textInputColor: {
+        background: '#F7F7F7',
     }
 }
