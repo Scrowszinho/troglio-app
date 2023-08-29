@@ -8,9 +8,8 @@ import Form from '../screens/Form';
 import Graph from '../screens/Graph';
 import Config from '../screens/Config';
 import ButtonTeste from '../components/AddButton';
+import Login from '../screens/Login';
 import Register from '../screens/Register';
-
-
 
 const MainNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -67,8 +66,8 @@ const MainNavigation = () => {
           }}
         />
         <Tab.Screen
-          name='Register'
-          component={Register}
+          name='Login'
+          component={Login}
           options={{
             tabBarIcon: ({ focused, color, size }) => (
               <Entypo name='onedrive' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
