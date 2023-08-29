@@ -9,6 +9,7 @@ import Graph from '../screens/Graph';
 import Config from '../screens/Config';
 import ButtonTeste from '../components/AddButton';
 import Login from '../screens/Login';
+import Register from '../screens/Register';
 
 const MainNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -73,7 +74,6 @@ const MainNavigation = () => {
             ),
           }}
         />
-
       </Tab.Navigator>
     </NavigationContainer>
   );
