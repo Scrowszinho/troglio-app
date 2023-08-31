@@ -1,4 +1,5 @@
 import { GlobalProvider } from "./src/context";
+import 'react-native-gesture-handler';
 import MainNavigation from "./src/navigation";
 
 const App = () => {
