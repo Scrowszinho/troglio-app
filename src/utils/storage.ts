@@ -10,8 +10,8 @@ export const saveItemToStorage = async (key: string, value: any) => {
 
 export const getItemToStorage = async (key: string) => {
   try {
-    const valor = await AsyncStorage.getItem(key);
-    return valor ? JSON.parse(valor) : null;
+    const value = await AsyncStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
   } catch (error) {
     console.error('Erro ao buscar item:', error);
     return null;

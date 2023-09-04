@@ -18,8 +18,6 @@ instance.interceptors.request.use(
 
     try {
       const token = await getItemToStorage('token');
-      console.log(token);
-
       if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
       }
