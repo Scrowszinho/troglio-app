@@ -1,8 +1,9 @@
 import axios, { AxiosInstance } from 'axios';
 import { getItemToStorage } from './storage';
+import { DefaultStorageEnum } from '../enum/default-storage.enum';
 
 const instance: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'http://localhost:3000',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
@@ -15,13 +16,11 @@ instance.interceptors.request.use(
     if (noSafeUrl.some((url) => config.url === url)) {
       return config;
     }
-
     try {
-      const token = await getItemToStorage('token');
+      const token = await getItemToStorage(DefaultStorageEnum.APP_USER_TOKEN);
       if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
       }
-
       return config;
     } catch (error) {
       return Promise.reject(error);

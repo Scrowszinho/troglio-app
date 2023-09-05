@@ -1,0 +1,5 @@
+export enum DefaultStorageEnum {
+    APP_USER_DATA = 'APP_USER_DATA',
+    APP_USER_TOKEN = 'APP_USER_TOKEN',
+    APP_USER_TOKEN_EXPIRES = 'APP_USER_TOKEN_EXPIRES',
+}

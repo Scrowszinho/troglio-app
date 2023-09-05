@@ -2,7 +2,7 @@ import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import { montFilter } from './style';
 import { AntDesign } from '@expo/vector-icons';
 import { useState } from 'react';
-import { addMonths, format } from 'date-fns';
+import { addMonths, format, getMonth } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { defaultTheme } from '../../theme/default';
 
@@ -15,8 +15,7 @@ const Item = ({ monthLabel, index }: { monthLabel: string, index: number; }) => 
 };
 
 const MonthFilter = () => {
-    const [currentMonth, setCurrentMonth] = useState(new Date());
-
+    const [currentMonth, setCurrentMonth] = useState(new Date());    
     const advanceMonth = () => {
         setCurrentMonth(addMonths(currentMonth, 1));
     };
