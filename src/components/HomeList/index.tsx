@@ -67,7 +67,7 @@ const HomeList = ({ data }: { data: IDebitData }) => {
             <FlatList
                 data={treatData}
                 renderItem={({ item }) => <Item data={item} />}
-                keyExtractor={item => getTypeText(item.title)}
+                keyExtractor={item => item.id.toString()}
             />
             <CalcArea data={calcValues} />
         </>

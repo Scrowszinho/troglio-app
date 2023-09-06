@@ -11,13 +11,12 @@ import { getMonth } from 'date-fns';
 
 const Home = () => {
 	const dataa: IHomeList[] = [{ icon: 'light-bulb', title: 'Home', type: 'CREDIT', value: 11 }, { icon: 'water', title: 'axios', type: 'CREDIT', value: 11 }];
-	const [month, setMonth] = useState<number>(getMonth(new Date()));
+	const [month, setMonth] = useState<number>(8);
 	const [data, setData] = useState<IDebitData>();
-	saveItemToStorage(DefaultStorageEnum.APP_USER_TOKEN, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjkzOTU2OTM5LCJleHAiOjE2OTM5Nzg1Mzl9.iK-JcsJCZm641MUGljrRB_T9ZNKp3owjBXx7M0RsbbE');
+	saveItemToStorage(DefaultStorageEnum.APP_USER_TOKEN, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjk0MDQyNDA2LCJleHAiOjE2OTQwNjQwMDZ9.xDxoLQ7Y7Vl1UDKxUC9EKcapvfTjQIkVMZ9G_7bjLIw');
 	useEffect(() => {
-		axios.post('/debits/year', { month, year: 2023 })
+		axios.post('/debits/year', { month: 8, year: 2023 })
 			.then((response) => {
-				console.log(response.data);
 				setData(response.data);
 			})
 			.catch((error) => {

@@ -25,15 +25,15 @@ export function generatePastelColor() {
 }
 
 export function getColorsByType(type: string): {color: string, icon: string} {
-    let color = '#BBCFBF', icon = 'tint';
+    let color = '#BBCFBF', icon = 'coins';
     if(type === DefaultTextEnEnum.WATER) {
-        color = '#FDFD96';
+        color = '#65CBE9';
         icon = 'water';
     } else if (type === DefaultTextEnEnum.ENERGY) {
-        color = '#FDFD96';
+        color = '#F7DF65';
         icon = 'bolt';
     } else if (type === DefaultTextEnEnum.RENT) {
-        color = '#FDFD96';
+        color = '#6B74F7';
         icon = 'bolt';
     } else if (type === DefaultTextEnEnum.PROLAB) {
         color = '#BBCFBF';
