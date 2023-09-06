@@ -13,12 +13,12 @@ const Home = () => {
 	const dataa: IHomeList[] = [{ icon: 'light-bulb', title: 'Home', type: 'CREDIT', value: 11 }, { icon: 'water', title: 'axios', type: 'CREDIT', value: 11 }];
 	const [month, setMonth] = useState<number>(getMonth(new Date()));
 	const [data, setData] = useState<IDebitData>();
-	saveItemToStorage(DefaultStorageEnum.APP_USER_TOKEN, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjkzODczMzY0LCJleHAiOjE2OTM4OTQ5NjR9.bhkfk5Jy13BDCkuNNCkPAFOAS7rxqyRzUEYYvHFt8vA');
+	saveItemToStorage(DefaultStorageEnum.APP_USER_TOKEN, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjkzOTU2OTM5LCJleHAiOjE2OTM5Nzg1Mzl9.iK-JcsJCZm641MUGljrRB_T9ZNKp3owjBXx7M0RsbbE');
 	useEffect(() => {
 		axios.post('/debits/year', { month, year: 2023 })
 			.then((response) => {
-				console.log(response);
-
+				console.log(response.data);
+				setData(response.data);
 			})
 			.catch((error) => {
 				console.log(error);
@@ -27,7 +27,12 @@ const Home = () => {
 	return (
 		<SafeAreaView>
 			<MonthFilter  />
-			<HomeList data={dataa} />
+			{
+				data ?
+				<HomeList data={data} />
+				:
+				<></>
+			}
 		</SafeAreaView>
 	);
 };

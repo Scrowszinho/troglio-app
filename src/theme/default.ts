@@ -1,3 +1,5 @@
+import { DefaultTextEnEnum } from "../enum/default-text.enum";
+
 export const defaultTheme = {
     colors: {
         green: '#17C74E',
@@ -20,5 +22,54 @@ export function generatePastelColor() {
     const lightness = 70 + Math.floor(Math.random() * 10);
   
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-  }
+}
+
+export function getColorsByType(type: string): {color: string, icon: string} {
+    let color = '#BBCFBF', icon = 'tint';
+    if(type === DefaultTextEnEnum.WATER) {
+        color = '#FDFD96';
+        icon = 'water';
+    } else if (type === DefaultTextEnEnum.ENERGY) {
+        color = '#FDFD96';
+        icon = 'bolt';
+    } else if (type === DefaultTextEnEnum.RENT) {
+        color = '#FDFD96';
+        icon = 'bolt';
+    } else if (type === DefaultTextEnEnum.PROLAB) {
+        color = '#BBCFBF';
+        icon = 'hand-holding-usd';
+    }
+    else if (type === DefaultTextEnEnum.HONOR) {
+        color = '#AFE5AA';
+        icon = 'file-invoice-dollar';
+    }
+    else if (type === DefaultTextEnEnum.SALARY) {
+        color = '#76826D';
+        icon = 'money-check';
+    }
+    else if (type === DefaultTextEnEnum.SIMPLE) {
+        color = '#E5DBFF';
+        icon = 'coins';
+    }
+    else if (type === DefaultTextEnEnum.FGTS) {
+        color = '#E5DBFF';
+        icon = 'coins';
+    }
+    else if (type === DefaultTextEnEnum.IRRF) {
+        color = '#E5DBFF';
+        icon = 'coins';
+    }
+    else if (type === DefaultTextEnEnum.ICMS) {
+        color = '#E5DBFF';
+        icon = 'coins';
+    }
+    else if (type === DefaultTextEnEnum.OTHERS) {
+        color = '#E5DBFF';
+        icon = 'coins';
+    }
+    return {
+        color,
+        icon
+    }
+}
   

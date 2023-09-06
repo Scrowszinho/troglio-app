@@ -36,6 +36,7 @@ export const montFilter = StyleSheet.create({
         display: 'flex',
         width: '100%',
         height: '100%',
+        paddingHorizontal: 16,
         alignContent: 'space-between'
     }
 });
