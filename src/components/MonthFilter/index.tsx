@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { addMonths, format, getMonth } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { defaultTheme } from '../../theme/default';
+import { MonthsYearEnumBr } from 'src/enum/months.enum';
 
 const Item = ({ monthLabel, index }: { monthLabel: string, index: number; }) => {
     return (
@@ -14,25 +15,37 @@ const Item = ({ monthLabel, index }: { monthLabel: string, index: number; }) => 
     );
 };
 
-const MonthFilter = () => {
-    const [currentMonth, setCurrentMonth] = useState(new Date());    
-    const advanceMonth = () => {
-        setCurrentMonth(addMonths(currentMonth, 1));
-    };
+const MonthFilter = (props: any) => {
+    // const [currentMonth, setCurrentMonth] = useState(new Date());    
+    // const advanceMonth = () => {
+    //     setCurrentMonth(addMonths(currentMonth, 1));
+    //     props.setMonth(currentMonth)
+    //     console.log(getMonth(currentMonth));
+    // };
 
-    const goBackMonth = () => {
-        setCurrentMonth(addMonths(currentMonth, -1));
-    };
+    // const goBackMonth = () => {
+    //     setCurrentMonth(addMonths(currentMonth, -1));
+    //     console.log(currentMonth);
+    //     props.setMonth(currentMonth)
+    // };
 
-    const monthsData = [];
-    const locale = ptBR;
-    for (let i = -1; i <= 1; i++) {
-        const month = addMonths(currentMonth, i);
-        monthsData.push({
-            id: i,
-            monthLabel: format(month, 'MMMM', { locale }),
-        });
+    // const monthsData = [];
+    // const locale = ptBR;
+    // for (let i = -1; i <= 1; i++) {
+    //     const month = addMonths(currentMonth, i);
+    //     monthsData.push({
+    //         id: i,
+    //         monthLabel: format(month, 'MMMM', { locale }),
+    //     });
+    // }
+    const months = [];
+    for (const [key, value] of Object.entries(MonthsYearEnumBr)) {
+        months.push(value);
     }
+
+    const [mesSelecionado, setMesSelecionado] = useState(getMonth(new Date()));
+    const mesesExibidos = Meses.slice(mesSelecionado - 1, mesSelecionado + 2); // Exibe 3 meses
+    
     return (
         <View style={montFilter.container}>
             <TouchableOpacity onPress={goBackMonth}>

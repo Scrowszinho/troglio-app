@@ -69,7 +69,7 @@ const HomeList = ({ data }: { data: IDebitData }) => {
                 renderItem={({ item }) => <Item data={item} />}
                 keyExtractor={item => item.id.toString()}
             />
-            <CalcArea data={calcValues} />
+            <CalcArea data={{debits: data.total, credits: 0}} />
         </>
     );
 };

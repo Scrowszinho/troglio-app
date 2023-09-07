@@ -8,6 +8,7 @@ import axios from '../../utils/axios';
 import { saveItemToStorage } from '../../utils/storage';
 import { DefaultStorageEnum } from '../../enum/default-storage.enum';
 import { getMonth } from 'date-fns';
+import { home } from './style';
 
 const Home = () => {
 	const dataa: IHomeList[] = [{ icon: 'light-bulb', title: 'Home', type: 'CREDIT', value: 11 }, { icon: 'water', title: 'axios', type: 'CREDIT', value: 11 }];
@@ -24,8 +25,8 @@ const Home = () => {
 			});
 	}, []);
 	return (
-		<SafeAreaView>
-			<MonthFilter  />
+		<SafeAreaView style={home.container}>
+			<MonthFilter setMonth={setMonth}  />
 			{
 				data ?
 				<HomeList data={data} />
