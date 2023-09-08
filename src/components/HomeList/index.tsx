@@ -3,7 +3,7 @@ import { IHomeListCalc } from './interface';
 import { homeList } from './style';
 import { useState } from 'react';
 import { getColorsByType } from '../../theme/default';
-import { IDebitData, ITreatValues } from 'src/interfaces/home.interface';
+import { IDebitData, ITreatValues } from '../../interfaces/home.interface';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { getTypeText } from '../../utils/typeText';
 

@@ -10,8 +10,8 @@ import Config from '../screens/Config';
 import ButtonTeste from '../components/AddButton';
 import { getItemToStorage, saveItemToStorage } from '../utils/storage';
 import { DefaultStorageEnum } from '../enum/default-storage.enum';
-
-
+import Login from '../screens/Login';
+import Register from '../screens/Register';
 
 const MainNavigation = () => {
   const Tab = createBottomTabNavigator();
@@ -65,6 +65,15 @@ const MainNavigation = () => {
           options={{
             tabBarIcon: ({ focused, color, size }) => (
               <Entypo name='dots-three-horizontal' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name='Login'
+          component={Login}
+          options={{
+            tabBarIcon: ({ focused, color, size }) => (
+              <Entypo name='onedrive' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
             ),
           }}
         />
