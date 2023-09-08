@@ -15,6 +15,15 @@ export const homeList = StyleSheet.create({
         paddingHorizontal: 16,
         height: 80
     },
+    icon : {
+        width: 48,
+        height: 48,
+        borderRadius: 100,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'black'
+    },
     boxTitle: {
         marginLeft: 10
     },
@@ -36,11 +45,7 @@ export const homeList = StyleSheet.create({
         fontWeight: 'bold'
     },
     listIcon: {
-        padding: 8,
-        borderRadius: 100,
         color: defaultTheme.colors.white,
-        display: 'flex',
-        alignItems: 'center'
     },
     calcArea: {
         display: 'flex',

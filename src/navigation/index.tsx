@@ -8,6 +8,8 @@ import Form from '../screens/Form';
 import Graph from '../screens/Graph';
 import Config from '../screens/Config';
 import ButtonTeste from '../components/AddButton';
+import { getItemToStorage, saveItemToStorage } from '../utils/storage';
+import { DefaultStorageEnum } from '../enum/default-storage.enum';
 import Login from '../screens/Login';
 import Register from '../screens/Register';
 
@@ -29,6 +31,7 @@ const MainNavigation = () => {
             tabBarIcon: ({ focused, color, size }) => (
               <FontAwesome5 name='home' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
             ), tabBarShowLabel: false,
+            headerShown: false
           }}
         />
         <Tab.Screen
