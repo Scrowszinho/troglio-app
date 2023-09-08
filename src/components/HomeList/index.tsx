@@ -1,12 +1,11 @@
 import { FlatList, Text, View } from 'react-native';
-import { IHomeList, IHomeListCalc } from './interface';
+import { IHomeListCalc } from './interface';
 import { homeList } from './style';
 import { useState } from 'react';
 import { getColorsByType } from '../../theme/default';
 import { IDebitData, ITreatValues } from 'src/interfaces/home.interface';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { getTypeText } from '../../utils/typeText';
-import { Backdrop, BackdropSubheader } from '@react-native-material/core';
 
 const Item = ({ data }: { data: ITreatValues; }) => {
     return (
@@ -48,7 +47,7 @@ const CalcArea = ({ data }: { data: IHomeListCalc; }) => {
     );
 };
 
-const HomeList = ({ data, openFilter }: { data: IDebitData, openFilter: boolean }) => {
+const HomeList = ({ data, openFilter }: { data: IDebitData, openFilter: boolean; }) => {
     const [calcValues, setCalcValues] = useState<IHomeListCalc>({ credits: 0, debits: 0 });
     const treatData: ITreatValues[] = [];
     data.debits.forEach(item => {
@@ -71,15 +70,6 @@ const HomeList = ({ data, openFilter }: { data: IDebitData, openFilter: boolean 
                 keyExtractor={item => item.id.toString()}
             />
             <CalcArea data={{ debits: data.total, credits: 0 }} />
-            <Backdrop
-                revealed={openFilter}
-                header={
-                    <View></View>
-                }
-                backLayer={<View style={{ height: 120 }} />}
-            >
-                <BackdropSubheader title="Subheader" />
-            </Backdrop>
         </>
     );
 };
