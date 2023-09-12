@@ -1,11 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { defaultTheme } from '../../theme/default';
+const screenHeight = Dimensions.get('window').height;
 
 export const home = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingBottom: 24,
-    },
     topInformations: {
         display: 'flex',
         flexDirection: 'row',
@@ -19,10 +16,10 @@ export const home = StyleSheet.create({
         paddingTop: 40,
         paddingBottom: 8
     },
-    text:{
+    text: {
         paddingHorizontal: 16,
         color: defaultTheme.colors.green,
         fontWeight: '600',
         fontSize: 24
-    }
+    },
 });

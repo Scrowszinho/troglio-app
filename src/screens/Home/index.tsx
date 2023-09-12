@@ -1,4 +1,4 @@
-import { SafeAreaView, View, TouchableOpacity, Text } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, Text, Button } from 'react-native';
 import HomeList from '../../components/HomeList';
 import { IHomeList } from '../../components/HomeList/interface';
 import { useEffect, useState } from 'react';
@@ -6,8 +6,8 @@ import { IDebitData } from '../../interfaces/home.interface';
 import axios from '../../utils/axios';
 import { ActivityIndicator } from "@react-native-material/core";
 import { home } from './style';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { defaultTheme } from '../../theme/default';
+import Backdrop from '../../components/BackDrop/index';
+
 const Home = () => {
 	const [month, setMonth] = useState<number>(8);
 	const [data, setData] = useState<IDebitData>();
@@ -21,12 +21,11 @@ const Home = () => {
 				console.log(error);
 			});
 	}, []);
+
 	return (
-		<SafeAreaView style={home.container}>
+		<SafeAreaView>
 			<View style={home.topInformations}>
-				<TouchableOpacity onPress={() => setOpenFilter(!openFilter)}>
-					<FontAwesome5 name={'filter'} size={24} color={defaultTheme.colors.white} />
-				</TouchableOpacity>
+				<Backdrop />
 				<Text>Jan</Text>
 				<View></View>
 			</View>
