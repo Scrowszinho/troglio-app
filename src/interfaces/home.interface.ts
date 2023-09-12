@@ -19,3 +19,8 @@ export interface IDebitData {
   debits: IValues[];
   total: number;
 }
+
+export interface IIncomingsData {
+  incomings: IValues[];
+  total: number;
+}

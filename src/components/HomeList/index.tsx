@@ -3,7 +3,7 @@ import { IHomeListCalc } from './interface';
 import { homeList } from './style';
 import { useState } from 'react';
 import { getColorsByType } from '../../theme/default';
-import { IDebitData, ITreatValues } from '../../interfaces/home.interface';
+import { IDebitData, IIncomingsData, ITreatValues } from '../../interfaces/home.interface';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { getTypeText } from '../../utils/typeText';
 
@@ -47,9 +47,11 @@ const CalcArea = ({ data }: { data: IHomeListCalc; }) => {
     );
 };
 
-const HomeList = ({ data, openFilter }: { data: IDebitData, openFilter: boolean; }) => {
+const HomeList = ({ data, incomings }: { data?: IDebitData, incomings?: IIncomingsData }) => {
     const [calcValues, setCalcValues] = useState<IHomeListCalc>({ credits: 0, debits: 0 });
     const treatData: ITreatValues[] = [];
+    const treatDataIncomings: ITreatValues[] = [];
+    if(data)
     data.debits.forEach(item => {
         treatData.push({
             id: item.id,
@@ -62,14 +64,40 @@ const HomeList = ({ data, openFilter }: { data: IDebitData, openFilter: boolean;
             icon: getColorsByType(item.type)
         });
     });
+    if(incomings)
+    incomings.incomings.forEach(item => {
+        treatDataIncomings.push({
+            id: item.id,
+            month: item.month,
+            type: item.type,
+            value: item.value,
+            year: item.year,
+            userId: item.userId,
+            title: getTypeText(item.type),
+            icon: getColorsByType(item.type)
+        });
+    });
     return (
         <>
+        {
+            data ?
             <FlatList
-                data={treatData}
-                renderItem={({ item }) => <Item data={item} />}
-                keyExtractor={item => item.id.toString()}
+            data={treatData}
+            renderItem={({ item }) => <Item data={item} />}
+            keyExtractor={item => item.id.toString()}
             />
-            <CalcArea data={{ debits: data.total, credits: 0 }} />
+            : <></>
+        }
+        {
+            incomings ?
+            <FlatList
+            data={treatDataIncomings}
+            renderItem={({ item }) => <Item data={item} />}
+            keyExtractor={item => item.id.toString()}
+            /> 
+            : <></>
+        }
+            <CalcArea data={{ debits: data?.total ?? 0, credits: incomings?.total ?? 0 }} />
         </>
     );
 };

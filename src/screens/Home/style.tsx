@@ -16,7 +16,12 @@ export const home = StyleSheet.create({
         paddingTop: 40,
         paddingBottom: 8
     },
-    text: {
+    loadingInfo: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    text:{
         paddingHorizontal: 16,
         color: defaultTheme.colors.green,
         fontWeight: '600',
