@@ -1,19 +1,10 @@
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import React from 'react';
+import FormView from './formView';
 
 const Form = () => {
     return (
-        <SafeAreaView style={styles.container}>
-            <Text>Tttt</Text>
-        </SafeAreaView>
+        <FormView />
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      paddingTop: 24
-    },
-  });
 
 export default Form;

@@ -7,8 +7,10 @@ export const defaultTheme = {
         mediumGrey: '#E7E7E7',
         greyStrong: '#B1B2AD',
         red: '#D89498',
+        darkRed: '#BC3921',
         blue: '#6E90E7',
         white: '#FFFFFF',
+        inputBackgroundColor: '#F7F7F7'
     },
     colorsLogo: {
         first: '#70C2D8',
