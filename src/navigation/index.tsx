@@ -47,7 +47,8 @@ const MainNavigation = () => {
           name='Form'
           component={Form}
           options={{
-            tabBarButton: ButtonTeste
+            tabBarButton: ButtonTeste,
+            headerShown: false
           }}
         />
         <Tab.Screen

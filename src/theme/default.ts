@@ -3,11 +3,12 @@ import { DefaultTextEnEnum } from "../enum/default-text.enum";
 export const defaultTheme = {
     colors: {
         green: '#17C74E',
+        greenHigh: '#6AE8B7',
         grey: '#EFEFEB',
         mediumGrey: '#E7E7E7',
         greyStrong: '#B1B2AD',
         red: '#D89498',
-        darkRed: '#BC3921',
+        darkRed: '#E86B6C',
         blue: '#6E90E7',
         white: '#FFFFFF',
         inputBackgroundColor: '#F7F7F7'

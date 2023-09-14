@@ -20,23 +20,27 @@ const Home = () => {
 	const [openFilter, setOpenFilter] = useState(false);
 	useEffect(() => {
 		axios.post('/debits/year', { month: 8, year: 2023 })
-			.then((response) => {
+			.then((response) => {				
 				setDebits(response.data);
 			})
 			.catch((error: AxiosError<any>) => {
 				setError(error.response?.data?.errors[0]);
 				setOpenSnackbar(true);
 			});
-		// axios.post('/incomings/year', { month: 8, year: 2023 })
-		// 	.then((response) => {
-		// 		setIncomings(response.data);
-		// 	})
-		// 	.catch((error: AxiosError<any>) => {				
-		// 		setError(error.response?.data?.errors[0]);
-		// 		setOpenSnackbar(true);
-		// 	});
+		axios.post('/incomings/year', { month: 8, year: 2023 })
+			.then((response) => {
+				setIncomings(response.data);
+				console.log(response);
+				
+			})
+			.catch((error: AxiosError<any>) => {	
+				console.log(error);
+							
+				setError(error.response?.data?.errors[0]);
+				setOpenSnackbar(true);
+			});
 	}, []);
-
+	
 	return (
 		<SafeAreaView>
 			<View style={home.topInformations}>
