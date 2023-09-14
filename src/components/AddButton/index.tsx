@@ -3,12 +3,13 @@ import { TouchableOpacity } from 'react-native';
 import { defaultTheme } from '../../theme/default';
 import { addButton } from './style';
 import { useNavigation } from '@react-navigation/native';
+import { RoutesEnum } from '../../enum/routes.enum';
 
 const ButtonTeste = () => {
     const navigation = useNavigation();
 
     const navigateToProfile = () => {
-      navigation.navigate('Form');
+      navigation.navigate(RoutesEnum.FORM_REGISTER);
     };
     return (
         <TouchableOpacity style={addButton.container} onPress={navigateToProfile}>

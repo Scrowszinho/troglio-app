@@ -37,6 +37,7 @@ const FormView = ({ value, setValue, isDebit, setIsDebit }: FormView) => {
                 {
                     [1, 2, 3, 4, 5, 6, 7, 8, 9].map((value) =>
                         <TouchableOpacity
+                            id={value.toString()}
                             onPress={() => addButon(value.toString())}
                             style={formStyle.button}>
                             <Text style={formStyle.text}>

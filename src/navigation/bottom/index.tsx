@@ -1,4 +1,4 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, Foundation, FontAwesome5 } from '@expo/vector-icons';
 import { defaultTheme } from '../../theme/default';
 import Home from '../../screens/Home';
@@ -8,27 +8,35 @@ import Graph from '../../screens/Graph';
 import Config from '../../screens/Config';
 import ButtonTeste from '../../components/AddButton';
 
+type StackTypeRoutes = {
+  HOME: undefined,
+  FORM_REGISTER: undefined,
+  DASHBOARD: undefined,
+};
+
+export type BottomRoutesType = BottomTabNavigationProp<StackTypeRoutes>;
+
 const MainNavigation = () => {
-  const Tab = createBottomTabNavigator();
+  const Tab = createBottomTabNavigator<StackTypeRoutes>();
   return (
-      <Tab.Navigator
-        screenOptions={{
-          tabBarShowLabel: false,
-          headerTitleAlign: 'center',
-          headerTitleStyle: { color: defaultTheme.colors.white },
-          headerStyle: { backgroundColor: defaultTheme.colors.green,}
-        }}>
-        <Tab.Screen
-          name='Home'
-          component={Home}
-          options={{
-            tabBarIcon: ({ focused, color, size }) => (
-              <FontAwesome5 name='home' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
-            ), tabBarShowLabel: false,
-            headerShown: false
-          }}
-        />
-        <Tab.Screen
+    <Tab.Navigator
+      screenOptions={{
+        tabBarShowLabel: false,
+        headerTitleAlign: 'center',
+        headerTitleStyle: { color: defaultTheme.colors.white },
+        headerStyle: { backgroundColor: defaultTheme.colors.green, }
+      }}>
+      <Tab.Screen
+        name={'HOME'}
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <FontAwesome5 name='home' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
+          ), tabBarShowLabel: false,
+          headerShown: false
+        }}
+      />
+      {/* <Tab.Screen
           name='ConfigTax'
           component={ConfigTax}
           options={{
@@ -36,25 +44,25 @@ const MainNavigation = () => {
               <Entypo name='list' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
             ),
           }}
-        />
-        <Tab.Screen
-          name='Form'
-          component={Form}
-          options={{
-            tabBarButton: ButtonTeste,
-            headerShown: false
-          }}
-        />
-        <Tab.Screen
-          name='Graph'
-          component={Graph}
-          options={{
-            tabBarIcon: ({ focused, color, size }) => (
-              <Foundation name='graph-bar' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
-            ),
-          }}
-        />
-        <Tab.Screen
+        /> */}
+      <Tab.Screen
+        name={'FORM_REGISTER'}
+        component={Form}
+        options={{
+          tabBarButton: ButtonTeste,
+          headerShown: false
+        }}
+      />
+      <Tab.Screen
+        name={'DASHBOARD'}
+        component={Graph}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => (
+            <Foundation name='graph-bar' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
+          ),
+        }}
+      />
+      {/* <Tab.Screen
           name='Config'
           component={Config}
           options={{
@@ -62,8 +70,8 @@ const MainNavigation = () => {
               <Entypo name='dots-three-horizontal' size={24} color={focused ? defaultTheme.colors.green : defaultTheme.colors.greyStrong} />
             ),
           }}
-        />
-      </Tab.Navigator>
+        /> */}
+    </Tab.Navigator>
   );
 };
 
