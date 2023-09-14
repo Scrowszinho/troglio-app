@@ -1,8 +1,10 @@
 import { Text } from '@react-native-material/core';
 import { registerStyles } from "../styles";
 import { View, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 const RegisterOrLoginComponent = () => {
+    const navigation = useNavigation();
     return (
         <View style={[registerStyles.section, registerStyles.registerButtonSection]}>
             <TouchableOpacity
@@ -17,7 +19,7 @@ const RegisterOrLoginComponent = () => {
 
                 <TouchableOpacity
                     onPress={() => {
-                        console.log("Botão 'Entre agora' pressionado!");
+                        navigation.navigate('Login')
                     }}>
                     <Text style={registerStyles.loginButtonStyle}>Entre agora</Text>
                 </TouchableOpacity>

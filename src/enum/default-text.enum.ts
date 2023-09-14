@@ -17,7 +17,7 @@ export enum DefaultTextBrEnum {
     ENERGY = 'Energia',
     RENT = 'Aluguel',
     PROLAB = 'Prolab',
-    HONOR = 'Honra',
+    HONOR = 'Honorario',
     SALARY = 'Salário',
     SIMPLE = 'Simples',
     FGTS = 'FGTS',
