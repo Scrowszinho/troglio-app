@@ -11,9 +11,17 @@ import { Picker } from '@react-native-picker/picker';
 
 const BackDropComponent = () => {
     const [isModalVisible, setModalVisible] = useState(false);
+    const [showPicker, setShowPicker] = useState(false);
+    const [iconName, setIconName] = useState('plus');
+    const [selectedMonth, setSelectedMonth] = useState(null);
 
     const toggleModal = () => {
         setModalVisible(!isModalVisible);
+    };
+
+    const togglePicker = () => {
+        setShowPicker(!showPicker);
+        setIconName(showPicker ? 'plus' : 'minus');
     };
 
     return (
@@ -40,15 +48,30 @@ const BackDropComponent = () => {
                             <Ionicons name="close" size={24} color="black" onPress={toggleModal} />
                         </View>
 
-                        <View style={{ flexDirection: 'row', paddingTop: 24 }}>
-                            <Text style={{ fontSize: 15 }}>POR MÊS</Text>
+                        
+                        <View style={backdropStyle.section}>
+                            <Text style={backdropStyle.sectionTitle}>POR MÊS</Text>
                             <Spacer></Spacer>
                             <View>
-                                <Feather name="plus" size={24} color="black" />
+                                <TouchableOpacity onPress={togglePicker}>
+                                    <Feather name={iconName} size={24} color="black" />
+                                </TouchableOpacity>
                             </View>
-                        </View>
+                            {showPicker && (
+                                <View style={backdropStyle.pickerStyle}>
+                                    <Picker
+                                        selectedValue={selectedMonth}
+                                        onValueChange={(itemValue, itemIndex) => setSelectedMonth(itemValue)}
+                                    >
+                                        {_months.map((month, index) => (
+                                            <Picker.Item key={index} label={month} value={month} />
+                                        ))}
+                                    </Picker>
+                                </View>
+                            )}
+                                    </View>
 
-                        {/*  
+                                    {/*  
                         <View style={{ flexDirection: 'row', paddingTop: 24 }}>
                             <Text style={{ fontSize: 15 }}>POR ANO</Text>
                             <Spacer></Spacer>
@@ -65,26 +88,26 @@ const BackDropComponent = () => {
                             </View>
                         </View> */}
 
-                    </View>
+                                </View>
                 </Backdrop>
-            </TouchableOpacity>
-        </View>
-    );
+                    </TouchableOpacity>
+                </View>
+                );
 }
 
-const _months = [
-    'Janeiro',
-    'Fevereiro',
-    'Março',
-    'Abril',
-    'Maio',
-    'Junho',
-    'Julho',
-    'Agosto',
-    'Setembro',
-    'Outubro',
-    'Novembro',
-    'Dezembro',
-];
+                const _months = [
+                'Janeiro',
+                'Fevereiro',
+                'Março',
+                'Abril',
+                'Maio',
+                'Junho',
+                'Julho',
+                'Agosto',
+                'Setembro',
+                'Outubro',
+                'Novembro',
+                'Dezembro',
+                ];
 
-export default BackDropComponent;
+                export default BackDropComponent;
