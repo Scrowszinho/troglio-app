@@ -16,5 +16,16 @@ export const backdropStyle = StyleSheet.create({
         borderTopRightRadius: 16,
         alignItems: 'center',
         height: screenHeight / 2,
-    }
+    },
+    section: {
+        flexDirection: 'row',
+        paddingTop: 24,
+    },
+    sectionTitle: {
+        fontSize: 15,
+    },
+    pickerStyle: {
+        color: '#ff0000',
+        paddingTop: 60,
+    },
 });
