@@ -3,9 +3,10 @@ import { registerStyles } from "../styles";
 import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { RoutesEnum } from '../../../enum/routes.enum';
+import { StackRoutesType } from '../../../navigation/stack';
 
 const RegisterOrLoginComponent = () => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<StackRoutesType>();
     return (
         <View style={[registerStyles.section, registerStyles.registerButtonSection]}>
             <TouchableOpacity

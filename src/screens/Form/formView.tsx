@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, SafeAreaView, View } from 'react-native';
+import { Button, FlatList, SafeAreaView, View } from 'react-native';
 import { formStyle } from './style';
 import { TouchableOpacity } from 'react-native';
 import { Text } from 'react-native';
@@ -9,6 +9,10 @@ import { getArrayTypeText } from '../../utils/typeText';
 import DatePicker, { getFormatedDate } from 'react-native-modern-datepicker';
 import axios from '../../utils/axios';
 import { IValuesDefault } from '../../interfaces/home.interface';
+import { Snackbar } from '@react-native-material/core';
+import { AxiosError } from 'axios';
+import { useNavigation } from '@react-navigation/native';
+import { BottomRoutesType } from '../../navigation/bottom';
 
 interface FormView {
     value: number;
@@ -22,8 +26,13 @@ interface FormView {
 }
 
 const FormView = ({ value, setValue, isDebit, setIsDebit, type, setType, date, setDate }: FormView) => {
+    const navigation = useNavigation<BottomRoutesType>();
+
     const [flip, setFlip] = useState<boolean>(false);
+    const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
+    const [error, setError] = useState<string>('');
     const [open, setOpen] = useState<boolean>(false);
+
     function addButon(valueInput: string) {
         setValue(+`${value}${valueInput}`);
     };
@@ -36,15 +45,21 @@ const FormView = ({ value, setValue, isDebit, setIsDebit, type, setType, date, s
 
     const makeRegister = async () => {
         const url = isDebit ? '/debits' : '/incomings';
+        const dateForm = date.split(' ');
         const data : IValuesDefault = {
-            month: new Date(date).getMonth(),
-            year: new Date(date).getFullYear(),
+            month: +dateForm[1]-1,
+            year: +dateForm[0],
             type,
             value
         }
-        // axios.post(url , )
-        console.log(data);
-        
+        axios.post(url , data).then((response) => {
+            navigation.reset({
+                routes: [{name: 'HOME'}]
+            })
+        }).catch((error: AxiosError<any>) => {
+            setOpenSnackbar(true);
+            setError(error.response?.data?.errors[0]);
+        });        
     }
     
     return (
@@ -171,15 +186,22 @@ const FormView = ({ value, setValue, isDebit, setIsDebit, type, setType, date, s
                         mode='monthYear'
                         selectorStartingYear={new Date().getFullYear()}
                         onMonthYearChange={date => {
-                            setOpen(false);
-                            console.log(getFormatedDate(new Date(date), 'YYYY-MM-DD'));
-                            
+                            setOpen(false);                            
                             setDate(date);
                         }}
-                        onDateChange={item => console.log(item)}
                     /> :
                     <></>
             }
+            {
+				openSnackbar ?
+				<Snackbar
+						message={error}
+						action={<Button title="Ok" color="#BB86FC" onPress={() => setOpenSnackbar(false)} />}
+						style={{ position: "absolute", start: 16, end: 16, bottom: 16 }}
+					/>
+				:
+				<></>
+			}
         </SafeAreaView>
     );
 };
