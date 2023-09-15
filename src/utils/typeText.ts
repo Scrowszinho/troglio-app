@@ -1,8 +1,23 @@
-import { DefaultTextBrEnum } from "../enum/default-text.enum";
+import { DefaultTextBrEnum, DefaultTextIncomingsBrEnum } from '../enum/default-text.enum';
+import { IDefaultArray } from '../interfaces/default.interface';
 
 export function getTypeText(type: string): string {
-    for (const [key, value] of Object.entries(DefaultTextBrEnum)) {
-        if(type === key)return value
+  for (const [key, value] of Object.entries(DefaultTextBrEnum)) {
+    if (type === key) return value;
+  }
+  return DefaultTextBrEnum.OTHERS;
+}
+
+export function getArrayTypeText(isIncoming: boolean = false): IDefaultArray[] {
+  const array: IDefaultArray[] = [];
+  if(isIncoming) {
+    for (const [key, value] of Object.entries(DefaultTextIncomingsBrEnum)) {
+      array.push({ key, value });
     }
-      return DefaultTextBrEnum.OTHERS;
+    return array
+  }
+  for (const [key, value] of Object.entries(DefaultTextBrEnum)) {
+    array.push({ key, value });
+  }
+  return array;
 }

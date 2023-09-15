@@ -1,42 +1,37 @@
 import { SafeAreaView, View, TouchableOpacity, Text, Button } from 'react-native';
 import HomeList from '../../components/HomeList';
-import { IHomeList } from '../../components/HomeList/interface';
 import { useEffect, useState } from 'react';
 import { IDebitData, IIncomingsData } from '../../interfaces/home.interface';
 import axios from '../../utils/axios';
 import { ActivityIndicator, Snackbar } from "@react-native-material/core";
 import { home } from './style';
 import Backdrop from '../../components/BackDrop/index';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { defaultTheme } from '../../theme/default';
 import { AxiosError } from 'axios';
 
 const Home = () => {
-	const [month, setMonth] = useState<number>(8);
 	const [error, setError] = useState<string>('');
 	const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
 	const [debits, setDebits] = useState<IDebitData>();
 	const [incomings, setIncomings] = useState<IIncomingsData>();
-	const [openFilter, setOpenFilter] = useState(false);
 	useEffect(() => {
 		axios.post('/debits/year', { month: 8, year: 2023 })
-			.then((response) => {
+			.then((response) => {				
 				setDebits(response.data);
 			})
 			.catch((error: AxiosError<any>) => {
 				setError(error.response?.data?.errors[0]);
 				setOpenSnackbar(true);
 			});
-		// axios.post('/incomings/year', { month: 8, year: 2023 })
-		// 	.then((response) => {
-		// 		setIncomings(response.data);
-		// 	})
-		// 	.catch((error: AxiosError<any>) => {				
-		// 		setError(error.response?.data?.errors[0]);
-		// 		setOpenSnackbar(true);
-		// 	});
+		axios.post('/incomings/year', { month: 8, year: 2023 })
+			.then((response) => {
+				setIncomings(response.data);				
+			})
+			.catch((error: AxiosError<any>) => {								
+				setError(error.response?.data?.errors[0]);
+				setOpenSnackbar(true);
+			});
 	}, []);
-
+	
 	return (
 		<SafeAreaView>
 			<View style={home.topInformations}>

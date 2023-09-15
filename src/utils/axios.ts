@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
 import { getItemToStorage } from './storage';
 import { DefaultStorageEnum } from '../enum/default-storage.enum';
 
@@ -35,7 +35,9 @@ instance.interceptors.response.use(
   (response) => {
     return response;
   },
-  (error) => {
+  (error:  AxiosError<any>) => {
+    console.log(error.response, typeof error);
+    
     return Promise.reject(error);
   }
 );
