@@ -7,6 +7,14 @@ export interface IValues {
   type: string;
 }
 
+export interface IValuesDefault {
+  month: number;
+  year: number;
+  value: number;
+  type: string;
+}
+
+
 export interface ITreatValues extends IValues {
   icon: {
     icon: string;

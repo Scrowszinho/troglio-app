@@ -9,7 +9,20 @@ export enum DefaultTextEnEnum {
     FGTS = 'FGTS',
     IRRF = 'IRRF',
     ICMS = 'ICMS',
+    MARKET = 'MARKET',
     OTHERS = 'OTHERS',
+}
+
+export enum DefaultTextIncomingsEnum {
+    SERVICES = 'SERVICES',
+    SELLINGS = 'SELLINGS',
+    OTHERS = 'OTHERS',
+}
+
+export enum DefaultTextIncomingsBrEnum {
+    SERVICES = 'Serviços',
+    SELLINGS = 'Vendas',
+    OTHERS = 'Outros',
 }
 
 export enum DefaultTextBrEnum {
@@ -17,11 +30,12 @@ export enum DefaultTextBrEnum {
     ENERGY = 'Energia',
     RENT = 'Aluguel',
     PROLAB = 'Prolab',
-    HONOR = 'Honra',
+    HONOR = 'Honorario',
     SALARY = 'Salário',
     SIMPLE = 'Simples',
     FGTS = 'FGTS',
     IRRF = 'IRRF',
     ICMS = 'ICMS',
+    MARKET = 'Compras',
     OTHERS = 'Outros',
 }

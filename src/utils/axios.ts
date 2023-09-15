@@ -1,9 +1,9 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
 import { getItemToStorage } from './storage';
 import { DefaultStorageEnum } from '../enum/default-storage.enum';
 
 const instance: AxiosInstance = axios.create({
-  baseURL: 'http://172.27.128.1:3000',
+  baseURL: 'http://192.168.1.31:3000',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
@@ -35,7 +35,9 @@ instance.interceptors.response.use(
   (response) => {
     return response;
   },
-  (error) => {
+  (error:  AxiosError<any>) => {
+    console.log(error.response, typeof error);
+    
     return Promise.reject(error);
   }
 );

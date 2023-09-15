@@ -22,7 +22,6 @@ export const homeList = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'black'
     },
     boxTitle: {
         marginLeft: 10

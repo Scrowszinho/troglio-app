@@ -1,0 +1,8 @@
+export enum RoutesEnum {
+    REGISTER_USER = 'REGISTER_USER',
+    LOGIN_USER = 'LOGIN_USER',
+    LOGED_IN = 'LOGED_IN',
+    HOME = 'HOME',
+    FORM_REGISTER = 'FORM_REGISTER',
+    DASHBOARD = 'DASHBOARD'
+}

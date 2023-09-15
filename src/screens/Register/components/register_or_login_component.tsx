@@ -1,8 +1,11 @@
 import { Text } from '@react-native-material/core';
 import { registerStyles } from "../styles";
 import { View, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import { RoutesEnum } from '../../../enum/routes.enum';
 
 const RegisterOrLoginComponent = () => {
+    const navigation = useNavigation();
     return (
         <View style={[registerStyles.section, registerStyles.registerButtonSection]}>
             <TouchableOpacity
@@ -17,7 +20,7 @@ const RegisterOrLoginComponent = () => {
 
                 <TouchableOpacity
                     onPress={() => {
-                        console.log("Botão 'Entre agora' pressionado!");
+                        navigation.navigate(RoutesEnum.LOGIN_USER)
                     }}>
                     <Text style={registerStyles.loginButtonStyle}>Entre agora</Text>
                 </TouchableOpacity>

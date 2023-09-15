@@ -1,19 +1,22 @@
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import React, { useState } from 'react';
+import FormView from './formView';
 
 const Form = () => {
+    const [value, setValue] = useState<number>(0);
+    const [isDebit, setIsDebit] = useState<boolean>(false);
+    const [type, setType] = useState<string>('');
+    const [date, setDate] = useState<string>('');
     return (
-        <SafeAreaView style={styles.container}>
-            <Text>Tttt</Text>
-        </SafeAreaView>
+        <FormView 
+        value={value}
+        type={type}
+        setType={setType}
+        setValue={setValue}
+        date={date}
+        setDate={setDate} 
+        isDebit={isDebit} 
+        setIsDebit={setIsDebit} />
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      paddingTop: 24
-    },
-  });
 
 export default Form;
