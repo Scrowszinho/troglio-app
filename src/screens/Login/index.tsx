@@ -25,10 +25,6 @@ const Login = () => {
         const tokenExpires = await getItemToStorage(DefaultStorageEnum.APP_USER_TOKEN_EXPIRES);
         if (new Date() > new Date(tokenExpires)) {
             doLogout();
-            navigation.reset({
-                routes: [{ name: 'LOGIN_USER' }],
-                index: 0
-            });
         } else {
             navigation.reset({
                 routes: [{ name: 'LOGED_IN' }],

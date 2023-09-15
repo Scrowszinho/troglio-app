@@ -1,10 +1,11 @@
-import { DefaultTextEnEnum } from "../enum/default-text.enum";
+import { DefaultTextEnEnum, DefaultTextIncomingsEnum } from "../enum/default-text.enum";
 
 export const defaultTheme = {
     colors: {
-        green: '#17C74E',
-        greenHigh: '#6AE8B7',
+        green: '#6AE8B7',
+        greenHigh: '#413E52',
         grey: '#EFEFEB',
+        greyDefault: '#E7E7E7',
         mediumGrey: '#E7E7E7',
         greyStrong: '#B1B2AD',
         red: '#D89498',
@@ -40,7 +41,7 @@ export function getColorsByType(type: string): {color: string, icon: string} {
         icon = 'bolt';
     } else if (type === DefaultTextEnEnum.RENT) {
         color = '#6B74F7';
-        icon = 'bolt';
+        icon = 'home';
     } else if (type === DefaultTextEnEnum.PROLAB) {
         color = '#BBCFBF';
         icon = 'hand-holding-usd';
@@ -54,24 +55,35 @@ export function getColorsByType(type: string): {color: string, icon: string} {
         icon = 'money-check';
     }
     else if (type === DefaultTextEnEnum.SIMPLE) {
-        color = '#E5DBFF';
-        icon = 'coins';
+        color = '#75B440';
+        icon = 'search-dollar';
     }
     else if (type === DefaultTextEnEnum.FGTS) {
-        color = '#E5DBFF';
-        icon = 'coins';
+        color = '#336D9E';
+        icon = 'file-invoice-dollar';
     }
     else if (type === DefaultTextEnEnum.IRRF) {
-        color = '#E5DBFF';
-        icon = 'coins';
+        color = '#022368';
+        icon = 'file-invoice';
     }
     else if (type === DefaultTextEnEnum.ICMS) {
-        color = '#E5DBFF';
-        icon = 'coins';
+        color = '#1E3050';
+        icon = 'landmark';
+    }
+    else if (type === DefaultTextEnEnum.MARKET) {
+        color = '#FFD43B';
+        icon = 'shopping-cart';
     }
     else if (type === DefaultTextEnEnum.OTHERS) {
         color = '#E5DBFF';
         icon = 'coins';
+    } else if (type === DefaultTextIncomingsEnum.SERVICES) {
+        color = '#40A647';
+        icon = 'scroll'
+    }
+    else if (type === DefaultTextIncomingsEnum.SELLINGS) {
+        color = '#6AE8B7';
+        icon = 'receipt'
     }
     return {
         color,

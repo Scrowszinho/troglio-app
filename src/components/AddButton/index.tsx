@@ -4,18 +4,19 @@ import { defaultTheme } from '../../theme/default';
 import { addButton } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { RoutesEnum } from '../../enum/routes.enum';
+import { BottomRoutesType } from '../../navigation/bottom';
 
-const ButtonTeste = () => {
-    const navigation = useNavigation();
+const ButtonAdd = () => {
+    const navigation = useNavigation<BottomRoutesType>();
 
     const navigateToProfile = () => {
-      navigation.navigate(RoutesEnum.FORM_REGISTER);
+      navigation.navigate('FORM_REGISTER');
     };
     return (
         <TouchableOpacity style={addButton.container} onPress={navigateToProfile}>
-            <AntDesign style={addButton.icon} name='plus' size={24} color={defaultTheme.colors.greyStrong} />
+            <AntDesign style={addButton.icon} name='plus' size={24} color={defaultTheme.colors.white} />
         </TouchableOpacity>
     );
 }
 
-export default ButtonTeste;
+export default ButtonAdd;
