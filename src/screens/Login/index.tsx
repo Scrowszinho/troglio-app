@@ -20,6 +20,7 @@ const Login = () => {
 
     const [login, setLogin] = useState<ILogin>({ email: '', password: '' });
     const [error, setError] = useState<string>('');
+    const [password, setPassword] = useState<boolean>(true);
 
     const getConsults = async () => {
         const tokenExpires = await getItemToStorage(DefaultStorageEnum.APP_USER_TOKEN_EXPIRES);
@@ -74,6 +75,13 @@ const Login = () => {
                         value={login.password}
                         onChangeText={text => setLogin({ email: login.email, password: text })}
                         placeholder='Senha'
+                        secureTextEntry={password}
+                    />
+                    <Feather
+                        name={password ? "eye-off" : "eye"}
+                        size={20}
+                        style={loginStyles.icon}
+                        onPress={() => setPassword(!password)}
                     />
                 </View>
                 <Text>{error}</Text>

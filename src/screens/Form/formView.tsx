@@ -127,7 +127,7 @@ const FormView = ({ value, setValue, isDebit, setIsDebit, type, setType, date, s
                                     style={[formStyle.typeSelect, { backgroundColor: isDebit ? defaultTheme.colors.darkRed : defaultTheme.colors.greyDefault }]}
                                     name={'money-bill-wave'}
                                     size={28} />
-                                <Text style={{ marginTop: 8 }}>Saidas</Text>
+                                <Text style={{ marginTop: 8 }}>Saídas</Text>
                             </TouchableOpacity>
                         </View>
                     </>

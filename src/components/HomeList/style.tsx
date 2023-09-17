@@ -15,7 +15,7 @@ export const homeList = StyleSheet.create({
         paddingHorizontal: 16,
         height: 80
     },
-    icon : {
+    icon: {
         width: 48,
         height: 48,
         borderRadius: 100,
@@ -27,19 +27,23 @@ export const homeList = StyleSheet.create({
         marginLeft: 10
     },
     title: {
-        fontSize: 16
+        fontSize: 16,
+        fontFamily: 'Roboto_700Bold'
     },
     subtitle: {
-        fontSize: 12
+        fontSize: 12,
+        fontFamily: 'Roboto_400Regular'
     },
     boxText: {
-        display:'flex',
+        display: 'flex',
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        fontFamily: 'Roboto_400Regular'
     },
-    valueText : {
+    valueText: {
         fontSize: 16,
+        fontFamily: 'Roboto_400Regular',
         color: defaultTheme.colors.green,
         fontWeight: 'bold'
     },
@@ -60,20 +64,23 @@ export const homeList = StyleSheet.create({
     },
     titleCalc1: {
         fontSize: 18,
+        fontFamily: 'Roboto_400Regular',
         fontWeight: 'bold',
         color: defaultTheme.colors.green
     },
     titleCalc2: {
         fontSize: 18,
+        fontFamily: 'Roboto_400Regular',
         fontWeight: 'bold',
         color: defaultTheme.colors.red
     },
     titleCalc3: {
         fontSize: 18,
+        fontFamily: 'Roboto_400Regular',
         fontWeight: 'bold',
         color: defaultTheme.colors.blue
     },
-    subtitleCalc : {
+    subtitleCalc: {
         fontSize: 12
     },
     box: {
@@ -82,5 +89,12 @@ export const homeList = StyleSheet.create({
     },
     spacer: {
         paddingHorizontal: 8
+    },
+    textTitle: {
+        paddingHorizontal: 16,
+        paddingVertical: 8,
+        borderBottomWidth: 1,
+        fontFamily: 'Roboto_400Regular',
+        borderColor: defaultTheme.colors.mediumGrey
     }
 });

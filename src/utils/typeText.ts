@@ -8,6 +8,13 @@ export function getTypeText(type: string): string {
   return DefaultTextBrEnum.OTHERS;
 }
 
+export function getTypeTextIncoming(type: string): string {
+  for (const [key, value] of Object.entries(DefaultTextIncomingsBrEnum)) {
+    if (type === key) return value;
+  }
+  return DefaultTextIncomingsBrEnum.OTHERS;
+}
+
 export function getArrayTypeText(isIncoming: boolean = false): IDefaultArray[] {
   const array: IDefaultArray[] = [];
   if(isIncoming) {

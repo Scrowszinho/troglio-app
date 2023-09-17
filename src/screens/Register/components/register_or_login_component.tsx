@@ -4,14 +4,19 @@ import { View, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { RoutesEnum } from '../../../enum/routes.enum';
 import { StackRoutesType } from '../../../navigation/stack';
+import { INewUser } from 'src/interfaces/user.interface';
 
-const RegisterOrLoginComponent = () => {
+interface RegisterOrLogin {
+    madeRequest: () => Promise<void>,
+}
+
+const RegisterOrLoginComponent = ({madeRequest} : RegisterOrLogin) => {
     const navigation = useNavigation<StackRoutesType>();
     return (
         <View style={[registerStyles.section, registerStyles.registerButtonSection]}>
             <TouchableOpacity
                 style={registerStyles.registerButtonStyle}
-                onPress={() => { console.log("aaa"); }}>
+                onPress={() => madeRequest()}>
 
                 <Text style={registerStyles.registerButtonText}>REGISTRAR</Text>
             </TouchableOpacity>

@@ -5,9 +5,14 @@ import { useState } from 'react';
 import { getColorsByType } from '../../theme/default';
 import { IDebitData, IIncomingsData, ITreatValues } from '../../interfaces/home.interface';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { getTypeText } from '../../utils/typeText';
+import { getTypeText, getTypeTextIncoming } from '../../utils/typeText';
 
-const Item = ({ data }: { data: ITreatValues; }) => {
+interface HomeList {
+    data: ITreatValues,
+    isIncoming?: boolean
+}
+
+const Item = ({ data, isIncoming }: HomeList) => {
     return (
         <View style={homeList.item}>
             <View style={[homeList.icon, { backgroundColor: data.icon?.color }]}>
@@ -16,7 +21,7 @@ const Item = ({ data }: { data: ITreatValues; }) => {
             <View style={homeList.boxText}>
                 <View style={homeList.boxTitle}>
                     <Text style={homeList.title}>{data.title}</Text>
-                    <Text style={homeList.subtitle}>{data.type = 'DEBIT' ? 'Gastos' : 'Ganhos'}</Text>
+                    <Text style={homeList.subtitle}>{isIncoming ? 'Gastos' : 'Ganhos'}</Text>
                 </View>
                 <Text style={homeList.valueText}>
                     {data.value.toFixed(2).replace(".", ",")}
@@ -73,12 +78,13 @@ const HomeList = ({ data, incomings }: { data?: IDebitData, incomings?: IIncomin
             value: item.value,
             year: item.year,
             userId: item.userId,
-            title: getTypeText(item.type),
+            title: getTypeTextIncoming(item.type),
             icon: getColorsByType(item.type)
         });
     });
     return (
         <>
+        <Text style={homeList.textTitle}>Entradas</Text>
         {
             data ?
             <FlatList
@@ -88,11 +94,12 @@ const HomeList = ({ data, incomings }: { data?: IDebitData, incomings?: IIncomin
             />
             : <></>
         }
+        <Text style={homeList.textTitle}>Saídas</Text>
         {
             incomings ?
             <FlatList
             data={treatDataIncomings}
-            renderItem={({ item }) => <Item data={item} />}
+            renderItem={({ item }) => <Item data={item} isIncoming={true} />}
             keyExtractor={item => item.id.toString()}
             /> 
             : <></>

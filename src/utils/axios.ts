@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { getItemToStorage } from './storage';
 import { DefaultStorageEnum } from '../enum/default-storage.enum';
+import { useLogout} from '../hooks/login';
 
 const instance: AxiosInstance = axios.create({
   baseURL: 'http://192.168.1.31:3000',
@@ -36,8 +37,10 @@ instance.interceptors.response.use(
     return response;
   },
   (error:  AxiosError<any>) => {
-    console.log(error.response, typeof error);
-    
+    const { doLogout } = useLogout();
+    if(error.response?.status) {
+      doLogout();
+    }    
     return Promise.reject(error);
   }
 );

@@ -1,27 +1,40 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { selectDefault } from './style';
+import { ActivityIndicator } from '@react-native-material/core';
 
-const SelectDefault = () => {
-    const pickerRef = useRef();
+export interface IPickerOptions {
+    value: number,
+    label: string;
+}
 
-    function open() {
-        pickerRef.current.focus();
-    }
+interface SelectDefault {
+    data: IPickerOptions[],
+    setValue: React.Dispatch<React.SetStateAction<number>>,
+    loading: boolean,
+    value: number,
+}
 
-    function close() {
-        pickerRef.current.blur();
-    }
+const SelectDefault = ({ data, setValue, loading, value }: SelectDefault) => {
+    return (
+        <>
+            {
+                loading ?
 
-    return <Picker
-        ref={pickerRef}
-        style={selectDefault.select}
-        onValueChange={(itemValue, itemIndex) =>
-            console.log(itemValue, itemIndex)
-        }>
-        <Picker.Item label="Java" value="java" />
-        <Picker.Item label="JavaScript" value="js" />
-    </Picker>;
+                    <Picker
+                        style={selectDefault.select}
+                        selectedValue={value}
+                        onValueChange={(itemValue: number) => setValue(itemValue)}>
+                        {
+                            data.map((item, index) => <Picker.Item label={item.label} value={item.value} key={index} />)
+                        }
+
+                    </Picker>
+                    :
+                    <ActivityIndicator size="large" color="error" />
+            }
+        </>
+    );
 };
 
 export default SelectDefault;

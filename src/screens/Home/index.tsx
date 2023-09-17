@@ -53,7 +53,7 @@ const Home = () => {
 				openSnackbar ?
 				<Snackbar
 						message={error}
-						action={<Button variant="text" title="Ok" color="#BB86FC" compact onPress={() => setOpenSnackbar(false)} />}
+						action={<Button title="Ok" color="#BB86FC" onPress={() => setOpenSnackbar(false)} />}
 						style={{ position: "absolute", start: 16, end: 16, bottom: 16 }}
 					/>
 				:

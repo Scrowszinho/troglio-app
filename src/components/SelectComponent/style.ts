@@ -3,9 +3,13 @@ import { defaultTheme } from '../../theme/default';
 
 export const selectDefault = StyleSheet.create({
     select: {
-        borderColor: 'black',
-        borderWidth: 2,
-        backgroundColor: defaultTheme.colors.inputBackgroundColor,
-        borderRadius: 10
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: defaultTheme.textInputColor.background,
+        borderWidth: .8,
+        borderRadius: 8,
+        marginVertical: 8,
+        height: 64
     },
 });
